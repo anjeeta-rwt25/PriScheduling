@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CPU Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CPU Scheduling Simulator</h1>
+
+    <label>Select Algorithms:</label>
+    <div id="algorithmGroup">
+      <label><input type="checkbox" class="algorithm" value="fcfs" checked> FCFS</label>
+      <label><input type="checkbox" class="algorithm" value="sjf"> SJF</label>
+      <label><input type="checkbox" class="algorithm" value="priority"> Priority</label>
+      <label><input type="checkbox" class="algorithm" value="rr"> Round Robin</label>
+    </div>
+
+    <label for="quantum" id="quantumLabel" style="display:none;">Time Quantum (for RR):</label>
+    <input id="quantum" type="number" min="1" value="2" style="display:none;">
+
+    <label>Process Data:</label>
+    <table id="processTable">
+    <thead>
+  <tr>
+    <th>Process ID</th>
+    <th>Arrival Time</th>
+    <th>Burst Time</th>
+    <th class="priority-col" style="display:none;">Priority</th>
+    <th>Completion Time</th>
+    <th>Turnaround Time</th>
+    <th>Waiting Time</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><input type="text" value="P1"></td>
+    <td><input type="number" value="0"></td>
+    <td><input type="number" value="4"></td>
+    <td class="priority-col" style="display:none;"><input type="number" value="1"></td>
+    <td class="ct"></td>
+    <td class="tat"></td>
+    <td class="wt"></td>
+    <td><button class="remove-row">Remove</button></td>
+  </tr>
+</tbody>
+    </table>
+    <button id="addRow">Add Process</button>
+    <button id="runBtn">Run Simulation</button>
+
+    <div id="ganttChartsContainer">
+      <!-- Gantt charts for each algorithm will be inserted here -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
